@@ -18,7 +18,7 @@ jobs:
       - name: List files
         run: ls -la
 
-      # Step 3: Display stystem information
+      # Step 3: Display system information
       - name: Show system info
         run: |
           echo "Repository: $GITHUB_REPOSITORY"
@@ -31,3 +31,25 @@ jobs:
           echo "Node version: $(node --version)"
           echo "Python version: $(python --version)"
           echo "Git version: $(git --version)"
+
+      # Step 5: Display today's date
+      - name: Today's date
+        run: date
+
+      # Step 6: More Commands
+      - name: Display disk space and memomry
+        run: |
+          echo "Available disk space: $(df -h)"
+          echo "Available memory: $(free -m)"
+
+      # Step 7: Custom Environment Variables
+      - name: Display custom message
+        run: echo "$CUSTOM_MESSAGE"
+
+      # Step 8: Conditional step
+      - name: Conditional step
+        if: github.event_name == "push"
+        run: echo "This was triggered by a push event"
+
+env:
+  CUSTOM_MESSAGE: "Hello from GitHub Actions!"
