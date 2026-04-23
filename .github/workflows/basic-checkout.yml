@@ -37,7 +37,7 @@ jobs:
         run: date
 
       # Step 6: More Commands
-      - name: Display disk space and memomry
+      - name: Display disk space and memory
         run: |
           echo "Available disk space: $(df -h)"
           echo "Available memory: $(free -m)"
@@ -48,7 +48,7 @@ jobs:
 
       # Step 8: Conditional step
       - name: Conditional step
-        if: github.event_name == 'push'
+        if: github.event_name == 'pull'
         run: echo "This was triggered by a push event"
 
 env:
