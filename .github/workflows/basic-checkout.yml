@@ -48,7 +48,7 @@ jobs:
 
       # Step 8: Conditional step
       - name: Conditional step
-        if: github.event_name == "push"
+        if: github.event_name == 'push'
         run: echo "This was triggered by a push event"
 
 env:
